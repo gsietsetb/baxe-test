@@ -7,8 +7,7 @@ import palette from './ui/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import C from 'consistencss';
-import {imgSize} from './comp/Avatar';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 /*TODO
 import Chat from './screens/Chat';
 import Community from './screens/Community';
@@ -74,13 +73,15 @@ export const AppWrapper = () => {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({route}) => ({
-          tabBarActiveTintColor: palette.gradientLightPurpleBlue,
+          tabBarColor: palette.grayIcon,
+
+          /*tabBarActiveTintColor: palette.gradientLightPurpleBlue,*/
           tabBarInactiveTintColor: palette.grayIcon,
-          tabBarLabel: ({route}) => (
+          /*tabBarLabel: ({route}) => (
             <View>
               <Text>{route.name}</Text>
             </View>
-          ),
+          ),*/
           tabBarBadge: route.name === routes[1].name && 4,
           tabBarIcon: ({focused, color}) => {
             const routeInfo = routes.find(r => r.name === route.name);
@@ -90,7 +91,15 @@ export const AppWrapper = () => {
 
             return focused ? (
               <LinearGradient
-                style={[C.p1, C.radius4, C.itemsCenter, imgSize.big]}
+                style={[
+                  C.p1,
+                  C.bgGrey,
+                  C.radius4,
+                  C.itemsCenter,
+                  C.justifyCenter,
+                  C.h8,
+                  C.w8,
+                ]}
                 colors={palette.gradientRedPurple.colors}>
                 <Icon
                   name={iconName as string}
@@ -98,12 +107,12 @@ export const AppWrapper = () => {
                   color={palette.white}
                 />
 
-                <Text style={[C.textWhite]}>{routeInfo?.name}</Text>
+                {/*<Text style={[C.textWhite]}>{routeInfo?.name}</Text>*/}
               </LinearGradient>
             ) : (
               <View>
                 <Icon name={iconName as string} size={24} color={color} />
-                <Text style={[C.textLightGray]}>{routeInfo?.name}</Text>
+                {/*<Text style={[C.textLightGray]}>{routeInfo?.name}</Text*/}
               </View>
             );
           },

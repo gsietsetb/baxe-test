@@ -50,6 +50,7 @@ export const Avatar = ({
 };
 
 export const imgSize = {
+  card: [C.h50, C.w70],
   big: [C.h13, C.w13],
   md: [C.h10, C.w10],
   sm: [C.h8, C.w8],
