@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import C from 'consistencss';
 import {imgSize} from './comp/Avatar';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 /*TODO
 import Chat from './screens/Chat';
 import Community from './screens/Community';
@@ -76,7 +76,12 @@ export const AppWrapper = () => {
         screenOptions={({route}) => ({
           tabBarActiveTintColor: palette.gradientLightPurpleBlue,
           tabBarInactiveTintColor: palette.grayIcon,
-          tabBarBadge: 4,
+          tabBarLabel: ({route}) => (
+            <View>
+              <Text>{route.name}</Text>
+            </View>
+          ),
+          tabBarBadge: route.name === routes[1].name && 4,
           tabBarIcon: ({focused, color}) => {
             const routeInfo = routes.find(r => r.name === route.name);
             const iconName = focused
@@ -96,7 +101,10 @@ export const AppWrapper = () => {
                 <Text style={[C.textWhite]}>{routeInfo?.name}</Text>
               </LinearGradient>
             ) : (
-              <Icon name={iconName as string} size={24} color={color} />
+              <View>
+                <Icon name={iconName as string} size={24} color={color} />
+                <Text style={[C.textLightGray]}>{routeInfo?.name}</Text>
+              </View>
             );
           },
         })}>

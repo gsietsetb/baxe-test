@@ -3,20 +3,23 @@ import {Image, Text, View} from 'react-native';
 import {UserType} from '../mock/users';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Styles} from 'consistencss/lib/typescript/src/types';
-import palette from '../ui/colors';
+import palette, {eColor} from '../ui/colors';
 import {fonts} from '../ui/typography';
-
-export const defaultImg =
-  'https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg';
+import React from 'react';
 
 export const Avatar = ({
   avatar,
   name,
   hasPay,
   size = imgSize.big,
-}: Partial<UserType> & {hasPay?: boolean; size?: Styles[]}) => {
+  style,
+}: Partial<UserType> & {
+  hasPay?: boolean;
+  size?: Styles[];
+  style?: Styles[];
+}) => {
   return (
-    <View style={[C.itemsCenter, C.m2]}>
+    <View style={[C.itemsCenter, C.mr2, style]}>
       {avatar && (
         <View>
           <Image
@@ -32,16 +35,16 @@ export const Avatar = ({
                 C.bgRed,
                 C.radius4,
                 C.borderWidth1,
-                C.right0,
-                C.borderWhite,
-                C.bottom0,
+                C.right_1,
+                eColor(palette.white, 2).border,
+                C.bottom_1,
               ]}>
               <Icon color={palette.white} name={'lightning-bolt'} size={16} />
             </View>
           )}
         </View>
       )}
-      {<Text style={[fonts.littleText, C.m2]}>{name}</Text>}
+      {name && <Text style={[fonts.littleText, C.bold, C.m2]}>{name}</Text>}
     </View>
   );
 };
@@ -50,4 +53,13 @@ export const imgSize = {
   big: [C.h13, C.w13],
   md: [C.h10, C.w10],
   sm: [C.h8, C.w8],
+};
+
+export const IconRow = ({icon = '', text = ''}) => {
+  return (
+    <View style={[C.row, C.m2, C.itemsCenter]}>
+      <Icon color={palette.white} name={icon} size={24} />
+      <Text style={[C.textWhite, C.ml3, fonts.textBold, C.mr4]}>{text}</Text>
+    </View>
+  );
 };

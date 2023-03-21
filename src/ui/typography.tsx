@@ -13,19 +13,16 @@ export const fontsMap = {
 
 export const fonts = {
   mainTitle: {
-    /*fontFamily: fontsMap.titleBold,*/
     fontSize: 36,
     fontWeight: '500',
     lineHeight: 43.2,
   },
   cta1: {
-    /*fontFamily: fontsMap.titleBold,*/
     fontSize: 20,
     fontWeight: '600',
     lineHeight: 30,
   },
   title1: {
-    /*fontFamily: fontsMap.titleBold,*/
     fontSize: 20,
     fontWeight: '600',
     lineHeight: 24,
@@ -38,19 +35,16 @@ export const fonts = {
     fontWeight: 'bold',
   },
   body1: {
-    /*fontFamily: fontsMap.body,*/
     fontSize: 16,
     lineHeight: 22.4,
   },
   subtitle: {
-    /*fontFamily: fontsMap.body,*/
     fontSize: 14,
     lineHeight: 19.6,
   },
   littleText: {
-    /*fontFamily: fontsMap.bodyBold,*/
     fontSize: 10,
-    fontWeight: 'bold',
+    /*fontWeight: 'bold',*/
     lineHeight: 14,
   },
 };
