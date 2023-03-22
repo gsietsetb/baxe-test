@@ -8,6 +8,7 @@ import palette, {eColor} from '../ui/colors';
 import C from 'consistencss';
 import {fonts} from '../ui/typography';
 import {IconRow} from './Avatar';
+import GradientText, {BASE_PIXEL} from './GradientText';
 
 const CreditCard = ({account}) => (
   <View style={[eColor(undefined, 2).border, C.mt3, C.radius6, C.mr6]}>
@@ -27,13 +28,17 @@ const CreditCard = ({account}) => (
       <View style={[C.my2, C.row]}>
         <Icon
           color={palette.grayText}
-          style={[C.selfCenter, C.mr3]}
+          style={[C.selfCenter, C.mr_13]}
           name={'bitcoin'}
           size={36}
         />
-        <Text style={[fonts.mainTitle, eColor(palette.grayText).text]}>
-          {account.balance}
-        </Text>
+        <GradientText
+          fontWeight={'bold'}
+          text={account.balance}
+          fontSize={BASE_PIXEL * 10}
+          gradient={palette.gradientLightPurpleBlue.colors.reverse()}
+          style={[C.ml_15]}
+        />
       </View>
       <Text style={[fonts.cta1, eColor(palette.grayText).text]}>
         {account.credit}

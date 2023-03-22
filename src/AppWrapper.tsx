@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
 import Home from './screens/Home';
-import palette from './ui/colors';
+import palette, {eColor} from './ui/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import C from 'consistencss';
@@ -72,9 +72,7 @@ export const AppWrapper = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        barStyle={[C.bgWhite]}
-        activeColor={palette.grayIcon}
-        style={[C.bgBlue]}
+        barStyle={[C.bgWhite, C.radiustop4, eColor(undefined, 2).border]}
         inactiveColor={palette.grayIcon}
         screenOptions={({route}) => ({
           tabBarColor: palette.grayIcon,
@@ -85,7 +83,6 @@ export const AppWrapper = () => {
             const iconName = focused
               ? routeInfo?.iconName.focused
               : routeInfo?.iconName.unfocused;
-
             return focused ? (
               <View style={[C.bgWhite, C.top_1, C.w20, C.itemsCenter]}>
                 <LinearGradient
