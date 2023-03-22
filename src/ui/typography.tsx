@@ -35,7 +35,7 @@ export const fonts = {
     fontWeight: 'bold',
   },
   body1: {
-    fontSize: 16,
+    fontSize: 14,
     lineHeight: 22.4,
   },
   subtitle: {
@@ -43,8 +43,8 @@ export const fonts = {
     lineHeight: 19.6,
   },
   littleText: {
-    fontSize: 10,
+    fontSize: 14,
     /*fontWeight: 'bold',*/
     lineHeight: 14,
   },
-};
+} as const;

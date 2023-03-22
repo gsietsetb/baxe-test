@@ -21,7 +21,7 @@ export const cards = [
     descr: 'Easy Pay & Free Fee',
   },
   {
-    icon: 'police-badge',
+    icon: 'medal',
     title: '1 More Step to Higher Account Level',
     descr: 'Easy Pay & Free Fee',
   },
@@ -29,8 +29,10 @@ export const cards = [
 export const products = [
   {
     icon: 'credit-card',
-    title: 'Pay Offline With BAXE Card',
-    descr: 'Easy Pay & Free Fee',
+    title: 'Earn Interest',
+    descr: 'With Your BSC',
+    bgImg:
+      'https://images.contentstack.io/v3/assets/blt38dd155f8beb7337/blt06e3f442d21cbbc4/6231356fbb9a2416314e7a98/Position-trading.jpg',
     name: 'Savings account',
   },
   {
@@ -39,7 +41,7 @@ export const products = [
       'https://purepng.com/public/uploads/large/purepng.com-gold-coinsflatcoinsroundmetalgoldclipart-1421526479774onbql.png',
     title: '1200.00',
     balance: '+ € 298.00',
-    descr: 'Easy Pay & Free Fee',
+    descr: '€ 1,108.00',
     name: 'BMC',
     grad: palette.gradientPurpleOrange.colors,
   },

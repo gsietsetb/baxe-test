@@ -10,10 +10,10 @@ import {fonts} from '../ui/typography';
 import {IconRow} from './Avatar';
 
 const CreditCard = ({account}) => (
-  <>
+  <View style={[eColor(undefined, 2).border, C.mt3, C.radius6, C.mr6]}>
     <LinearGradient
       colors={palette.gradientGrayBlue.colors}
-      style={[C.p6, C.mt3, eColor().border, C.radiustop6, C.mr6]}
+      style={[C.p6, C.radiustop6]}
       angle={-2}
       useAngle>
       <MatIcon
@@ -25,10 +25,10 @@ const CreditCard = ({account}) => (
 
       <Text style={[fonts.cta1, eColor(palette.grayText).text]}>Balance</Text>
       <View style={[C.my2, C.row]}>
-        <MatIcon
+        <Icon
           color={palette.grayText}
-          style={[C.selfCenter, C.mr4]}
-          name={'currency-eur'}
+          style={[C.selfCenter, C.mr3]}
+          name={'bitcoin'}
           size={36}
         />
         <Text style={[fonts.mainTitle, eColor(palette.grayText).text]}>
@@ -40,13 +40,7 @@ const CreditCard = ({account}) => (
       </Text>
     </LinearGradient>
     <View
-      style={[
-        eColor(palette.darkGrayText).bg,
-        C.p3,
-        C.mr6,
-        C.radiusbottom6,
-        C.row,
-      ]}>
+      style={[eColor(palette.darkGrayText).bg, C.p3, C.radiusbottom6, C.row]}>
       <IconRow icon={'bank-transfer-in'} text={'Deposit'} />
       <IconRow icon={'bank-transfer-out'} text={'Transfer'} />
 
@@ -57,7 +51,7 @@ const CreditCard = ({account}) => (
         name={'ellipsis-h'}
       />
     </View>
-  </>
+  </View>
 );
 
 export default CreditCard;

@@ -72,16 +72,13 @@ export const AppWrapper = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
+        barStyle={[C.bgWhite]}
+        activeColor={palette.grayIcon}
+        style={[C.bgBlue]}
+        inactiveColor={palette.grayIcon}
         screenOptions={({route}) => ({
           tabBarColor: palette.grayIcon,
-
-          /*tabBarActiveTintColor: palette.gradientLightPurpleBlue,*/
           tabBarInactiveTintColor: palette.grayIcon,
-          /*tabBarLabel: ({route}) => (
-            <View>
-              <Text>{route.name}</Text>
-            </View>
-          ),*/
           tabBarBadge: route.name === routes[1].name && 4,
           tabBarIcon: ({focused, color}) => {
             const routeInfo = routes.find(r => r.name === route.name);
@@ -90,30 +87,26 @@ export const AppWrapper = () => {
               : routeInfo?.iconName.unfocused;
 
             return focused ? (
-              <LinearGradient
-                style={[
-                  C.p1,
-                  C.bgGrey,
-                  C.radius4,
-                  C.itemsCenter,
-                  C.justifyCenter,
-                  C.h8,
-                  C.w8,
-                ]}
-                colors={palette.gradientRedPurple.colors}>
-                <Icon
-                  name={iconName as string}
-                  size={24}
-                  color={palette.white}
-                />
-
-                {/*<Text style={[C.textWhite]}>{routeInfo?.name}</Text>*/}
-              </LinearGradient>
-            ) : (
-              <View>
-                <Icon name={iconName as string} size={24} color={color} />
-                {/*<Text style={[C.textLightGray]}>{routeInfo?.name}</Text*/}
+              <View style={[C.bgWhite, C.top_1, C.w20, C.itemsCenter]}>
+                <LinearGradient
+                  style={[
+                    C.p1,
+                    C.radius3,
+                    C.itemsCenter,
+                    C.justifyCenter,
+                    C.h9,
+                    C.w9,
+                  ]}
+                  colors={palette.gradientRedPurple.colors}>
+                  <Icon
+                    name={iconName as string}
+                    size={24}
+                    color={palette.white}
+                  />
+                </LinearGradient>
               </View>
+            ) : (
+              <Icon name={iconName as string} size={24} color={color} />
             );
           },
         })}>
