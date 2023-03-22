@@ -1,6 +1,6 @@
 // CreditCard.test.js
 import React from 'react';
-import {render} from '@testing-library/react-native';
+import {render} from 'jest';
 import CreditCard from './CreditCard';
 
 describe('CreditCard', () => {

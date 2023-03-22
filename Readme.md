@@ -28,6 +28,8 @@ export type Route = {
   limited time, only mock data
   generated with [FakerJS](https://github.com/DiUS/java-faker) ,
   🚨however [faker.avatar() was not properly working](https://github.com/DiUS/java-faker/issues/590)
+
+
 - 🖌 Styling: [Consistencss](https://consistencss.now.sh/) Based in Tailwind for web, this library helps to ensure
   consistent UI Guidelines such as ``BASE_PIXEL=4`` to perform all the spacings and sizes in the app. Also I've created
   some helper functions such as `eColor()` and sizes such as:
@@ -41,35 +43,67 @@ export const imgSize = {
 };
 ```
 
-Time constrains made me skip the part of applying properly a gradient mask to text, however this could be thanks to a SVG Mask as follows:
+Time constrains made me skip the part of applying properly a gradient mask to text, however this could be thanks to a
+SVG Mask as follows:
+
 ````typescript
 //Absolute Container 
-<Svg width="100%" height="100%">
-        <Defs>
-          <LinearGradient id="Gradient" x1="0" y1="0" x2="1" y2="0">
-            <Stop offset="0" stopColor={gradient[0]} />
-            <Stop offset="1" stopColor={gradient[1]} />
-          </LinearGradient>
-        </Defs>
-        <Text
-          id="Text"
-          x="50%"
-          fill="url(#Gradient)"
-          fillRule="evenodd"
-          y={`${0.75 * lineHeight}`}
-          fontFamily={fontFamily}
-          fontWeight={fontWeight}
-          fontSize={fontSize}
-          textAnchor={textAnchor[alignment]}>
-          {text}
-        </Text>
-      </Svg>
+<Svg width = "100%"
+height = "100%" >
+<Defs>
+  <LinearGradient id = "Gradient"
+x1 = "0"
+y1 = "0"
+x2 = "1"
+y2 = "0" >
+<Stop offset = "0"
+stopColor = { gradient[0] }
+/>
+< Stop
+offset = "1"
+stopColor = { gradient[1] }
+/>
+< /LinearGradient>
+< /Defs>
+< Text
+id = "Text"
+x = "50%"
+fill = "url(#Gradient)"
+fillRule = "evenodd"
+y = {`${0.75 * lineHeight}`
+}
+fontFamily = { fontFamily }
+fontWeight = { fontWeight }
+fontSize = { fontSize }
+textAnchor = { textAnchor[alignment] } >
+  { text }
+  < /Text>
+  < /Svg>
 ````
+
 In order to achieve the following gradient
+
 ![img_5.png](img_5.png)
 
 - 🧪 Unit tests: user creation
+
+````typescript
+  test('should create a user with default values', () => {
+  const fakeObj = {
+    avatar: 'http://fake-image-url.com',
+    name: 'John',
+  };
+  const user: UserType = createPartialUser(fakeObj);
+
+  expect(user.avatar).toBe('http://fake-image-url.com');
+  expect(user.name).toBe('John');
+});
+````
+
+![img.png](img.png)
+
 - 🎨 Figma Inspiration: [Zeplin](https://www.figma.com/file/EhDxvOBVUlFWEbhS3lwx8l) See comparison below:
+
 ![img_4.png](img_4.png)
 ![img_3.png](img_3.png)
 
