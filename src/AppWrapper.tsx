@@ -7,7 +7,10 @@ import palette, {eColor} from './ui/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import C from 'consistencss';
-import {View} from 'react-native';
+import {Text, View} from 'react-native';
+import GradientText from './comp/GradientText';
+import {fonts} from './ui/typography';
+import {imgSize} from './comp/Avatar';
 /*TODO
 import Chat from './screens/Chat';
 import Community from './screens/Community';
@@ -77,6 +80,7 @@ export const AppWrapper = () => {
         screenOptions={({route}) => ({
           tabBarColor: palette.grayIcon,
           tabBarInactiveTintColor: palette.grayIcon,
+          title: '',
           tabBarBadge: route.name === routes[1].name && 4,
           tabBarIcon: ({focused, color}) => {
             const routeInfo = routes.find(r => r.name === route.name);
@@ -84,7 +88,7 @@ export const AppWrapper = () => {
               ? routeInfo?.iconName.focused
               : routeInfo?.iconName.unfocused;
             return focused ? (
-              <View style={[C.bgWhite, C.top_1, C.w20, C.itemsCenter]}>
+              <View style={[C.bgWhite, C.top_1, C.w20, C.mb5, C.itemsCenter]}>
                 <LinearGradient
                   style={[
                     C.p1,
@@ -101,9 +105,23 @@ export const AppWrapper = () => {
                     color={palette.white}
                   />
                 </LinearGradient>
+                <GradientText
+                  text={routeInfo?.name || 'Home'}
+                  fontWeight={'bold'}
+                  style={[C.absolute, C.bottom_5, C.pl1]}
+                  gradient={palette.gradientRedPurple.colors}
+                />
               </View>
             ) : (
-              <Icon name={iconName as string} size={24} color={color} />
+              <View
+                style={[C.justifyBetween, imgSize.big, C.w25, C.itemsCenter]}>
+                <Icon name={iconName as string} size={24} color={color} />
+                <Text
+                  numberOfLines={1}
+                  style={[eColor(palette.grayText).text, fonts.subtitle]}>
+                  {routeInfo?.name}
+                </Text>
+              </View>
             );
           },
         })}>

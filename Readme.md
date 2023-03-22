@@ -65,8 +65,10 @@ Time constrains made me skip the part of applying properly a gradient mask to te
         </Text>
       </Svg>
 ````
+In order to achieve the following gradient
+![img_5.png](img_5.png)
 
-- 🧪 Unit tests: item creation
+- 🧪 Unit tests: user creation
 - 🎨 Figma Inspiration: [Zeplin](https://www.figma.com/file/EhDxvOBVUlFWEbhS3lwx8l) See comparison below:
 ![img_4.png](img_4.png)
 ![img_3.png](img_3.png)

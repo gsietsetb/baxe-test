@@ -43,7 +43,7 @@ export const fonts = {
     lineHeight: 19.6,
   },
   littleText: {
-    fontSize: 14,
+    fontSize: 12,
     /*fontWeight: 'bold',*/
     lineHeight: 14,
   },
